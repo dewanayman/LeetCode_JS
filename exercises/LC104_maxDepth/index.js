@@ -5,16 +5,15 @@ function maxDepth(root) {
     function deep(node, current) {
         if (!node && (current - 1) > maxDepth) {
             maxDepth = current - 1;
-            return;
         } else {
             return;
         }
 
-        deep(node.left, current);
-        deep(node.right, current);
+        deep(node.left, current + 1) ;
+        deep(node.right, current + 1);
     }
 
-    deep(node, 1);
+    deep(root, 1);
 
     return maxDepth;
 }
